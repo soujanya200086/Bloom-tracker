@@ -258,10 +258,11 @@
 
     function initHabits() {
         document.querySelectorAll('.habit-item').forEach(item => {
-            item.addEventListener('click', () => {
+            item.addEventListener('click', (e) => {
+                e.preventDefault();
                 item.classList.toggle('checked');
                 const checkbox = item.querySelector('.habit-check');
-                checkbox.checked = !checkbox.checked;
+                checkbox.checked = item.classList.contains('checked');
             });
         });
     }
