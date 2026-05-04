@@ -1,0 +1,344 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>BloomTracker — Grow Into Your Best Self</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <div class="app">
+        <header>
+            <h1>🌱 BloomTracker</h1>
+            <p class="subtitle">grow into your best self, one day at a time</p>
+            <nav>
+                <button class="nav-btn active" data-view="home">Home</button>
+                <button class="nav-btn" data-view="checkin">Check In</button>
+                <button class="nav-btn" data-view="garden">Garden</button>
+                <button class="nav-btn" data-view="analysis">Analysis</button>
+            </nav>
+        </header>
+
+        <main>
+            <!-- HOME VIEW -->
+            <section id="home-view" class="view active">
+                <div class="quote-card">
+                    <div class="quote-icon">✨</div>
+                    <p id="daily-quote" class="quote-text"></p>
+                    <p id="quote-author" class="quote-author"></p>
+                </div>
+
+                <div class="card today-plant-card">
+                    <div class="today-header">
+                        <h2>Today's Growth</h2>
+                        <span class="today-date" id="today-date"></span>
+                    </div>
+                    <div class="plant-display" id="today-plant">
+                        <div class="plant-container">
+                            <div class="plant-visual" id="home-plant-visual"></div>
+                        </div>
+                        <div class="plant-status" id="plant-status-text">Start your check-in to grow your plant today!</div>
+                    </div>
+                    <div class="progress-ring-container">
+                        <div class="progress-info">
+                            <span class="progress-number" id="home-progress-number">0</span>
+                            <span class="progress-label">/ 11 habits</span>
+                        </div>
+                        <div class="progress-bar-bg">
+                            <div class="progress-bar-fill" id="home-progress-fill"></div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="card">
+                    <h2>Quick Overview</h2>
+                    <div class="quick-stats" id="quick-stats">
+                        <div class="stat-item">
+                            <span class="stat-emoji">🔥</span>
+                            <span class="stat-value" id="streak-count">0</span>
+                            <span class="stat-label">Day Streak</span>
+                        </div>
+                        <div class="stat-item">
+                            <span class="stat-emoji">🌿</span>
+                            <span class="stat-value" id="week-completion">0%</span>
+                            <span class="stat-label">This Week</span>
+                        </div>
+                        <div class="stat-item">
+                            <span class="stat-emoji">💜</span>
+                            <span class="stat-value" id="avg-mood-home">—</span>
+                            <span class="stat-label">Avg Mood</span>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <!-- CHECK-IN VIEW -->
+            <section id="checkin-view" class="view">
+                <div class="card">
+                    <h2>🌿 Body & Health</h2>
+                    <p class="card-hint">Nourish your body today</p>
+                    <div class="habits-list">
+                        <label class="habit-item" data-habit="water">
+                            <input type="checkbox" class="habit-check">
+                            <span class="habit-icon">💧</span>
+                            <span class="habit-text">Drank 3.5L water</span>
+                            <span class="checkmark"></span>
+                        </label>
+                        <label class="habit-item" data-habit="workout">
+                            <input type="checkbox" class="habit-check">
+                            <span class="habit-icon">🏋️</span>
+                            <span class="habit-text">Workout done</span>
+                            <span class="checkmark"></span>
+                        </label>
+                        <label class="habit-item" data-habit="steps">
+                            <input type="checkbox" class="habit-check">
+                            <span class="habit-icon">🚶</span>
+                            <span class="habit-text">Walked 6k–8k steps</span>
+                            <span class="checkmark"></span>
+                        </label>
+                        <label class="habit-item" data-habit="no-sugar">
+                            <input type="checkbox" class="habit-check">
+                            <span class="habit-icon">🚫</span>
+                            <span class="habit-text">No sugar today</span>
+                            <span class="checkmark"></span>
+                        </label>
+                        <label class="habit-item" data-habit="no-junk">
+                            <input type="checkbox" class="habit-check">
+                            <span class="habit-icon">🥗</span>
+                            <span class="habit-text">No junk food</span>
+                            <span class="checkmark"></span>
+                        </label>
+                    </div>
+                </div>
+
+                <div class="card">
+                    <h2>💕 Relationships & Love</h2>
+                    <p class="card-hint">How you showed up for the people you love</p>
+                    <div class="habits-list">
+                        <label class="habit-item" data-habit="kind-to-others">
+                            <input type="checkbox" class="habit-check">
+                            <span class="habit-icon">🤍</span>
+                            <span class="habit-text">Didn't hurt anyone with words or actions</span>
+                            <span class="checkmark"></span>
+                        </label>
+                        <label class="habit-item" data-habit="loving-partner">
+                            <input type="checkbox" class="habit-check">
+                            <span class="habit-icon">🥰</span>
+                            <span class="habit-text">Was a loving & caring partner</span>
+                            <span class="checkmark"></span>
+                        </label>
+                        <label class="habit-item" data-habit="parents">
+                            <input type="checkbox" class="habit-check">
+                            <span class="habit-icon">📞</span>
+                            <span class="habit-text">Talked to parents (long distance love)</span>
+                            <span class="checkmark"></span>
+                        </label>
+                    </div>
+                </div>
+
+                <div class="card">
+                    <h2>🧠 Mind & Boundaries</h2>
+                    <p class="card-hint">Protecting your peace</p>
+                    <div class="habits-list">
+                        <label class="habit-item" data-habit="no-overthinking">
+                            <input type="checkbox" class="habit-check">
+                            <span class="habit-icon">🧘</span>
+                            <span class="habit-text">Didn't overthink today</span>
+                            <span class="checkmark"></span>
+                        </label>
+                        <label class="habit-item" data-habit="boundaries">
+                            <input type="checkbox" class="habit-check">
+                            <span class="habit-icon">🛡️</span>
+                            <span class="habit-text">Set healthy boundaries</span>
+                            <span class="checkmark"></span>
+                        </label>
+                        <label class="habit-item" data-habit="prioritize-self">
+                            <input type="checkbox" class="habit-check">
+                            <span class="habit-icon">👑</span>
+                            <span class="habit-text">Prioritized myself</span>
+                            <span class="checkmark"></span>
+                        </label>
+                    </div>
+                </div>
+
+                <div class="card">
+                    <h2>😴 Hours Slept</h2>
+                    <div class="sleep-tracker">
+                        <div class="sleep-slider-container">
+                            <input type="range" id="sleep-hours" class="sleep-slider" min="0" max="12" step="0.5" value="7">
+                            <div class="sleep-display">
+                                <span class="sleep-value" id="sleep-value">7</span>
+                                <span class="sleep-unit">hours</span>
+                            </div>
+                        </div>
+                        <div class="sleep-quality-labels">
+                            <span>😵 0h</span>
+                            <span>😴 6h</span>
+                            <span>✨ 8h+</span>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="card">
+                    <h2>How are you feeling?</h2>
+                    <div class="mood-selector">
+                        <button class="mood-btn" data-mood="1" title="Terrible">
+                            <span class="mood-emoji">😢</span>
+                            <span class="mood-label">Terrible</span>
+                        </button>
+                        <button class="mood-btn" data-mood="2" title="Low">
+                            <span class="mood-emoji">😔</span>
+                            <span class="mood-label">Low</span>
+                        </button>
+                        <button class="mood-btn" data-mood="3" title="Okay">
+                            <span class="mood-emoji">😐</span>
+                            <span class="mood-label">Okay</span>
+                        </button>
+                        <button class="mood-btn" data-mood="4" title="Good">
+                            <span class="mood-emoji">😊</span>
+                            <span class="mood-label">Good</span>
+                        </button>
+                        <button class="mood-btn" data-mood="5" title="Amazing">
+                            <span class="mood-emoji">🥰</span>
+                            <span class="mood-label">Amazing</span>
+                        </button>
+                    </div>
+                </div>
+
+                <div class="card">
+                    <h2>Did you overthink today?</h2>
+                    <p class="card-hint">Be honest with yourself — awareness is the first step</p>
+                    <div class="overthink-selector">
+                        <button class="overthink-btn" data-overthink="none">
+                            <span>🌟</span>
+                            <span>Not at all</span>
+                        </button>
+                        <button class="overthink-btn" data-overthink="little">
+                            <span>🌤️</span>
+                            <span>A little</span>
+                        </button>
+                        <button class="overthink-btn" data-overthink="moderate">
+                            <span>☁️</span>
+                            <span>Moderate</span>
+                        </button>
+                        <button class="overthink-btn" data-overthink="alot">
+                            <span>🌧️</span>
+                            <span>A lot</span>
+                        </button>
+                        <button class="overthink-btn" data-overthink="spiral">
+                            <span>🌪️</span>
+                            <span>Full spiral</span>
+                        </button>
+                    </div>
+                </div>
+
+                <div class="card">
+                    <h2>End of Day Journal</h2>
+                    <p class="card-hint">What did you do today? Tag with emojis!</p>
+                    <div class="journal-emojis">
+                        <button class="emoji-tag" data-emoji="💻" title="Coded">💻</button>
+                        <button class="emoji-tag" data-emoji="📚" title="Studied">📚</button>
+                        <button class="emoji-tag" data-emoji="🏃" title="Exercise">🏃</button>
+                        <button class="emoji-tag" data-emoji="🍳" title="Cooked">🍳</button>
+                        <button class="emoji-tag" data-emoji="🎬" title="Watched something">🎬</button>
+                        <button class="emoji-tag" data-emoji="🎵" title="Music">🎵</button>
+                        <button class="emoji-tag" data-emoji="👫" title="Time with Rohith">👫</button>
+                        <button class="emoji-tag" data-emoji="👯" title="Friends">👯</button>
+                        <button class="emoji-tag" data-emoji="🛍️" title="Shopping">🛍️</button>
+                        <button class="emoji-tag" data-emoji="🧖" title="Self-care">🧖</button>
+                        <button class="emoji-tag" data-emoji="😴" title="Rested">😴</button>
+                        <button class="emoji-tag" data-emoji="📱" title="Doom scrolled">📱</button>
+                        <button class="emoji-tag" data-emoji="😭" title="Cried">😭</button>
+                        <button class="emoji-tag" data-emoji="🎨" title="Creative">🎨</button>
+                        <button class="emoji-tag" data-emoji="🧹" title="Cleaned">🧹</button>
+                        <button class="emoji-tag" data-emoji="☕" title="Coffee/chai">☕</button>
+                        <button class="emoji-tag" data-emoji="🌙" title="Late night">🌙</button>
+                        <button class="emoji-tag" data-emoji="🥲" title="Missed someone">🥲</button>
+                    </div>
+                </div>
+
+                <div class="card reflection-card">
+                    <h2>🪞 Daily Reflection</h2>
+                    <div class="reflection-section">
+                        <label class="reflection-label">
+                            <span class="reflection-icon">✨</span> What went well today?
+                        </label>
+                        <textarea id="went-well" class="reflection-input" placeholder="Celebrate your wins, big or small..." rows="3"></textarea>
+                    </div>
+                    <div class="reflection-section">
+                        <label class="reflection-label">
+                            <span class="reflection-icon">🔧</span> What didn't work?
+                        </label>
+                        <textarea id="didnt-work" class="reflection-input" placeholder="No judgment — just awareness for tomorrow..." rows="3"></textarea>
+                    </div>
+                    <div class="reflection-section">
+                        <label class="reflection-label">
+                            <span class="reflection-icon">💜</span> Anything else on your heart?
+                        </label>
+                        <textarea id="journal-text" class="reflection-input" placeholder="Write freely... this is your safe space." rows="3"></textarea>
+                    </div>
+                </div>
+
+                <button id="save-checkin" class="primary-btn">🌱 Save Today's Check-in</button>
+
+                <div id="save-success" class="success-msg" style="display:none;">
+                    <span>🌱 Saved! Your plant is growing. You're doing amazing. 💜</span>
+                </div>
+            </section>
+
+            <!-- GARDEN VIEW (7-day) -->
+            <section id="garden-view" class="view">
+                <div class="card">
+                    <h2>🌿 Your 7-Day Garden</h2>
+                    <p class="card-hint">Each plant represents a day — the more habits you complete, the more it blooms!</p>
+                    <div class="garden-container" id="garden-container">
+                        <!-- Plants rendered by JS -->
+                    </div>
+                    <div class="garden-legend">
+                        <div class="legend-item"><span class="legend-plant">🥀</span> 0–3</div>
+                        <div class="legend-item"><span class="legend-plant">🌱</span> 4–5</div>
+                        <div class="legend-item"><span class="legend-plant">🌿</span> 6–7</div>
+                        <div class="legend-item"><span class="legend-plant">🌸</span> 8–10</div>
+                        <div class="legend-item"><span class="legend-plant">🌺</span> All 11!</div>
+                    </div>
+                </div>
+
+                <div class="card">
+                    <h2>This Week's Habit Breakdown</h2>
+                    <div id="week-habits-breakdown" class="week-breakdown"></div>
+                </div>
+            </section>
+
+            <!-- ANALYSIS VIEW -->
+            <section id="analysis-view" class="view">
+                <div class="card">
+                    <h2>📊 Weekly Mood Analysis</h2>
+                    <p class="card-hint">How you felt this week</p>
+                    <div id="mood-analysis" class="mood-analysis"></div>
+                </div>
+
+                <div class="card">
+                    <h2>🧠 Overthinking Report</h2>
+                    <div id="overthink-analysis" class="overthink-analysis"></div>
+                </div>
+
+                <div class="card">
+                    <h2>🌱 Growth Insights</h2>
+                    <div id="growth-insights" class="growth-insights"></div>
+                </div>
+
+                <div class="card">
+                    <h2>📝 This Week's Journal Highlights</h2>
+                    <div id="journal-highlights" class="journal-highlights"></div>
+                </div>
+            </section>
+        </main>
+
+        <footer>
+            <p>You are enough, exactly as you are. 💜🌱</p>
+        </footer>
+    </div>
+
+    <script src="app.js"></script>
+</body>
+</html>
