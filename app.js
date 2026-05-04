@@ -258,11 +258,8 @@
 
     function initHabits() {
         document.querySelectorAll('.habit-item').forEach(item => {
-            item.addEventListener('click', (e) => {
-                e.preventDefault();
+            item.addEventListener('click', () => {
                 item.classList.toggle('checked');
-                const checkbox = item.querySelector('.habit-check');
-                checkbox.checked = item.classList.contains('checked');
             });
         });
     }
@@ -347,7 +344,6 @@
                 const item = document.querySelector(`[data-habit="${HABITS[i].id}"]`);
                 if (item) {
                     item.classList.add('checked');
-                    item.querySelector('.habit-check').checked = true;
                 }
             }
         });
